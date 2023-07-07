@@ -1,11 +1,10 @@
-Copy code
 function pigLatinTranslator(input) {
   // Convert the input to lowercase for easier comparison
   input = input.toLowerCase();
 
   // Check if the input is empty or a single-letter word
   if (input.length === 0 || input.length === 1) {
-    console.log("Input can't be translated.");
+    document.getElementById('translation').textContent = "Input can't be translated.";
     return;
   }
 
@@ -40,8 +39,8 @@ function pigLatinTranslator(input) {
   // Join the translated words back into a sentence
   const translatedSentence = translatedWords.join(' ');
 
-  // Print the translated sentence
-  console.log(translatedSentence);
+  // Display the translated sentence
+  document.getElementById('translation').textContent = translatedSentence;
 }
 
 // Helper function to check if a character is a vowel
@@ -56,9 +55,8 @@ function isConsonant(character) {
   return consonants.includes(character);
 }
 
-// Example usage:
-pigLatinTranslator('apple');        // Output: appleway
-pigLatinTranslator('pig latin');    // Output: igpay atinlay
-pigLatinTranslator('grade');        // Output: adegray
-pigLatinTranslator('');             // Output: Input can't be translated.
-pigLatinTranslator('a');            // Output: Input can't be translated.
+function translate() {
+  const input = document.getElementById('input').value;
+  pigLatinTranslator(input);
+}
+
